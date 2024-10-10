@@ -1,0 +1,30 @@
+name: anime_mangatoon
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.4
+  shared_preferences: ^2.0.15
+  # For Hive (alternative to SharedPreferences)
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.11
+  # For Rating Feature UI
+  flutter_rating_bar: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/data/webtoons.json
+    - lib/data/lore_olympus.json

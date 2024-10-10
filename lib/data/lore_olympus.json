@@ -1,0 +1,76 @@
+{
+    "detailScreen": {
+        "webtoonTitle": "Lore Olympus Webtoon: Jaw Dropping Seen on Media",
+        "creator": "Rachel Smith",
+        "publishDate": "August 17, 2024",
+        "imageLink": "https://animemangatoon.com/wp-content/uploads/2024/05/etweoask-474x375.png.webp",
+        "description": "Dive into the intricate world of 'Lore Olympus,' where ancient myths collide with modern story, exploring power, love, trauma, and identity in captivating ways.",
+        "mainCharacters": [
+            {
+                "name": "Hades",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/64u47lg4-360x504.png.webp",
+                "description": "Hades, the God of the underworld, takes center stage. Often depicted as a handsome blue man in a business suit, he runs the Underworld Corporation and serves as the older brother of Zeus and Poseidon."
+            },
+            {
+                "name": "Persephone",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/myq53tdb-360x504.png.webp",
+                "description": "Persephone, the goddess of spring, is the story’s heroine. Portrayed as innocent and naive at first, her character develops dramatically as she faces more challenges."
+            },
+            {
+                "name": "Zeus",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/ilzxkblr-350x350.png.webp",
+                "description": "Zeus, the king of the gods, is known for his promiscuity and egotism, which often bring chaos to Olympus."
+            },
+            {
+                "name": "Poseidon",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/ccgqrffp-360x504.png.webp",
+                "description": "Poseidon, the God of the sea and Zeus’s brother, is characterized by a carefree temperament and portrayed with green skin."
+            },
+            {
+                "name": "Eros",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/p682kcd9-360x504.png.webp",
+                "description": "Eros, the God of love, is a strong, maroon young man and one of Persephone’s best friends."
+            }
+        ],
+        "minorCharacters": [
+            {
+                "name": "Hermes",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/zo3dwfwa-360x504.png.webp",
+                "description": "Hermes, the God of speed and travel, works as a soul collector for Hades."
+            },
+            {
+                "name": "Apollo",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/e255xaho-474x375.png.webp",
+                "description": "Apollo, the sun god, becomes an essential antagonist after an incident involving Persephone."
+            },
+            {
+                "name": "Artemis",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/6g6fq36m-360x504.png.webp",
+                "description": "Artemis, goddess of the hunt and Persephone’s best friend, is fiercely protective of her."
+            },
+            {
+                "name": "Demeter",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/hlymlxkd-360x504.png.webp",
+                "description": "Demeter, the harvest goddess and Persephone’s mother, is overprotective due to her fears for her daughter."
+            },
+            {
+                "name": "Ares",
+                "image": "https://animemangatoon.com/wp-content/uploads/2024/05/6gjen5jm.png.webp",
+                "description": "Ares, the God of war, has a tumultuous relationship with Aphrodite."
+            }
+        ],
+        "buttons": {
+            "addToFavorites": {
+                "text": "Add to Favorites",
+                "action": "addToFavorites()"
+            }
+        },
+        "additionalResources": [
+            {
+                "text": "Read Lore Olympus Season 1 Review",
+                "link": "link_to_season1_review"
+            }
+        ],
+        "finalWords": "“Lore Olympus” is not a retelling of modern Greek mythology; It is a beautiful tapestry of interlocking stories that explore deep themes of power, love, trauma, and identity. Rachel Smith’s vibrant art and nuanced storytelling have created a world that deeply affects readers, offering entertainment and insight. Let us know in the comments below what you think about the modern re-telling of Greek mythology. "
+    }
+}
