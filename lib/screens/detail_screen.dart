@@ -2,12 +2,16 @@ import 'package:anime_mangatoon/widgets/brand_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:anime_mangatoon/models/webtoonDetailModel.dart'; 
+import 'package:anime_mangatoon/models/webtoonDetailModel.dart';
 import 'package:anime_mangatoon/services/data_services.dart';
 
+/// DetailScreen displays detailed information about a specific webtoon.
+/// It includes the webtoon's image, description, creator details, publish date,
+/// and interactive elements like favorite button and rating bar.
 class DetailScreen extends StatefulWidget {
   final String title;
 
+  /// Constructs a DetailScreen that displays the details of a webtoon identified by [title].
   DetailScreen({required this.title});
 
   @override
@@ -24,11 +28,13 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
+    // Load the details of the webtoon from the data service.
     webtoonDetail = dataService.loadWebtoonDetail(widget.title);
     _loadRating();
     _checkFavoriteStatus();
   }
 
+  /// Checks if the webtoon is already marked as favorite.
   void _checkFavoriteStatus() async {
     final prefs = await SharedPreferences.getInstance();
     List<String> favorites = prefs.getStringList('favorites') ?? [];
@@ -37,6 +43,7 @@ class _DetailScreenState extends State<DetailScreen> {
     });
   }
 
+  /// Updates the favorite status of the webtoon.
   void _updateFavorite(bool favorite) async {
     final prefs = await SharedPreferences.getInstance();
     List<String> favorites = prefs.getStringList('favorites') ?? [];
@@ -55,6 +62,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  /// Loads the current user rating for the webtoon.
   void _loadRating() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -63,6 +71,7 @@ class _DetailScreenState extends State<DetailScreen> {
     });
   }
 
+  /// Saves the new rating given by the user.
   void _saveRating(double rating) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble('${widget.title}_rating', rating);
@@ -72,32 +81,16 @@ class _DetailScreenState extends State<DetailScreen> {
     });
   }
 
-  void _addToFavorites() async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String> favorites = prefs.getStringList('favorites') ?? [];
-    if (!favorites.contains(widget.title)) {
-      favorites.add(widget.title);
-      await prefs.setStringList('favorites', favorites);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Added to favorites')),
-      );
-    }
-  }
-
+  /// Displays a dialog with detailed information about the character.
   void showCharacterDetailDialog(Character character) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                  12.0)), // This line is used for the rounded corner of the dialog
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
           child: Container(
-            padding: EdgeInsets.only(
-              right: 10,
-              left: 10,
-              bottom: 20,
-            ),
+            padding: EdgeInsets.only(right: 10, left: 10, bottom: 20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -110,22 +103,14 @@ class _DetailScreenState extends State<DetailScreen> {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: 8,
-                ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    character.image,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.network(character.image,
+                      width: double.infinity, fit: BoxFit.cover),
                 ),
-                SizedBox(height: 10),
                 Text(character.name,
                     style:
                         TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                SizedBox(height: 5),
                 Text(character.description),
               ],
             ),
@@ -135,34 +120,23 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  /// Builds a ListTile card for a character that can be tapped to show more details.
   Widget buildCharacterCard(Character character) {
     return GestureDetector(
       onTap: () => showCharacterDetailDialog(character),
       child: ListTile(
         leading: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(8.0), // Adjust radius to your liking
+          borderRadius: BorderRadius.circular(8.0),
           child: SizedBox(
             width: 58,
             height: 58,
-            child: Image.network(
-              character.image,
-              fit: BoxFit.cover,
-            ),
+            child: Image.network(character.image, fit: BoxFit.cover),
           ),
         ),
-        title: Text(
-          character.name,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        subtitle: Text(
-          character.description,
-          maxLines: 2, // Limit text to two lines
-          overflow: TextOverflow.ellipsis, // Show ellipsis after two lines
-        ),
+        title: Text(character.name,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        subtitle: Text(character.description,
+            maxLines: 2, overflow: TextOverflow.ellipsis),
       ),
     );
   }
@@ -187,14 +161,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         Text('Created by: ${webtoon.creator}',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            )),
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                         Text('Published on: ${webtoon.publishDate}',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            )),
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                         Text(webtoon.description),
                       ],
                     ),
@@ -203,7 +173,6 @@ class _DetailScreenState extends State<DetailScreen> {
                     initialIsFavorite: isFavorite,
                     onFavoriteChanged: _updateFavorite,
                   ),
-                  SizedBox(height: 20),
                   Text('Rate this Webtoon'),
                   RatingBar.builder(
                     initialRating: _userRating,
@@ -213,21 +182,19 @@ class _DetailScreenState extends State<DetailScreen> {
                         Icon(Icons.star, color: Colors.amber),
                     onRatingUpdate: _saveRating,
                   ),
-                  SizedBox(height: 10),
                   Text('Average Rating: $_averageRating'),
                   Text('Main Characters',
                       style: Theme.of(context).textTheme.headlineMedium),
                   Column(
-                    children:
-                        webtoon.mainCharacters.map(buildCharacterCard).toList(),
-                  ),
+                      children: webtoon.mainCharacters
+                          .map(buildCharacterCard)
+                          .toList()),
                   Text('Minor Characters',
                       style: Theme.of(context).textTheme.headlineMedium),
                   Column(
-                    children: webtoon.minorCharacters
-                        .map(buildCharacterCard)
-                        .toList(),
-                  ),
+                      children: webtoon.minorCharacters
+                          .map(buildCharacterCard)
+                          .toList()),
                 ],
               ),
             );
