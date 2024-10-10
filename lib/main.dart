@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    Scaffold(
+    const Scaffold(
       body: Center(
           child: Text(
         'Watch List',
