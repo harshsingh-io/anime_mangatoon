@@ -1,5 +1,10 @@
 # AnimeMangaToon Webtoon Explorer App
 
+### Demo
+Please wait while it's loading. (It's of 60+mb gif)
+
+<img src="https://github.com/harshsingh-io/anime_mangatoon/blob/main/demo.gif" height="740" alt="Demo GIF">
+
 ## Overview
 This Flutter application is developed as part of a Flutter Development Internship Assignment for AnimeMangaToon.com. It showcases webtoon content through a user-friendly mobile app interface, focusing on state management, navigation, and persistent storage.
 
