@@ -20,7 +20,7 @@ To set up this project on your local machine, follow these steps:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/harshsingi-io/anime_mangatoon.git
+   git clone https://github.com/harshsingh-io/anime_mangatoon.git
    cd anime_mangatoon
    ```
 
